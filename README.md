@@ -1,6 +1,6 @@
 # runRforFVS
 
-An RStudio workflow for running FVS Ontario projections, extracting species-level yield tables, and plotting yield over age. FVS executables and generated results are not included; the validated `inventories/RedOak.tre` sample is included.
+An RStudio workflow for running FVS Ontario projections, extracting species-level yield tables, and plotting yield over age. FVS executables and generated results are not included; four validated sample inventories are included under `inventories/`.
 
 ## Requirements
 
@@ -32,5 +32,5 @@ Results are written under `fvs_runs/` and are intentionally ignored by Git.
 - `fvs_ontario_interactive.R`: FVS keyword writing, execution, and import helpers.
 - `fvs_species_yield.R`: Tree-list parser and yield-table writer.
 - `fvs_species_yield_ggplot.R`: Species and scenario-comparison plots.
-- `inventories/RedOak.tre`: Mature red-oak sample inventory for the existing-inventory scenario.
+- `inventories/`: Red oak, tolerant hardwood, white-pine mixedwood, and boreal mixedwood examples. See `inventories/README.md` for their starting assumptions.
 - `FVS_WORKFLOW.md`, `FVS_R_REFERENCE.md`, and `FVS_KEYWORD_GUIDE.md`: operational and function references.

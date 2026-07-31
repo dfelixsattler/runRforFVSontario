@@ -180,6 +180,17 @@ This test evaluates changes in the relative abundance, basal area, and volume of
 
 ## Import Existing FVS Runs and Inventories
 
+### Packaged inventory examples
+
+The repository includes these existing-inventory examples under `inventories/`. Each was smoke-tested for 10 years with the modern ESSA Ontario executable. Their tree lists do not carry site information, so use the site species and index below only as starting assumptions for testing.
+
+| File | Stand type | Site species code | Starting site index (m) |
+| --- | --- | ---: | ---: |
+| `RedOak.tre` | Red oak, sugar maple, red maple, white pine, and minor conifers | 34 (red oak) | 16 |
+| `Tolhwd.tre` | Sugar-maple tolerant hardwood with beech, ironwood, and swamp white oak | 26 (sugar maple) | 14 |
+| `WhPine.tre` | White-pine/red-pine mixedwood with red maple, white birch, spruce, and balsam fir | 5 (white pine) | 15 |
+| `Mxwd.tre` | Boreal mixedwood with trembling aspen, black spruce, jack pine, white birch, and balsam fir | 41 (trembling aspen) | 18 |
+
 ### Bundled red-oak inventory
 
 The bundled `RedOak.tre` file can be projected directly as an existing inventory:
