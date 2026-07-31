@@ -1,0 +1,20 @@
+# R and RStudio session state
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Generated FVS runs and reports
+fvs_runs/
+*.key
+*.rsp
+*.out
+*.lst
+*.sum
+*.cut
+*_species_yield.csv
+*_stand_yield.csv
+*_species_yield_ggplot.png
+*_yield_over_age.png
+fort.*
+Rplots.pdf
