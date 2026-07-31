@@ -194,7 +194,7 @@ red_oak_results <- run_fvs_ontario_scenario(
 	site_species_code = 34,
 	site_index = 16,
 	projection_years = projection_years,
-	inventory_file = file.path(fvs_legacy_home, "Work", "RedOak.tre"),
+	inventory_file = file.path("inventories", "RedOak.tre"),
 	origin = "natural",
 	fvs_executable = fvs_essa_executable
 )
@@ -202,7 +202,7 @@ red_oak_results <- run_fvs_ontario_scenario(
 print(plot_fvs_yield(red_oak_results, metric = "all"))
 ```
 
-The runner creates a fresh staged copy of the inventory in the scenario output folder before invoking FVS, which avoids the legacy executable's problem reading the installed path with spaces and parentheses. Set `FVS_ONTARIO_LEGACY_HOME` when the legacy FVS installation is elsewhere. The `.tre` file supplies tree records, not stand site data, so the red-oak site index of $16\ \mathrm{m}$ and inventory year are starting assumptions to revise for an actual stand.
+The repository includes this sample inventory, and the scenario runs it with the configured modern FVS executable. The runner creates a fresh staged copy in the scenario output folder before invoking FVS. The `.tre` file supplies tree records, not stand site data, so the red-oak site index of $16\ \mathrm{m}$ and inventory year are starting assumptions to revise for an actual stand.
 
 Use `fvs_load_run()` to extract yield tables from an existing `.lst` file without running FVS again:
 

@@ -21,10 +21,6 @@ fvs_essa_executable <- Sys.getenv(
   "FVS_ONTARIO_EXECUTABLE",
   unset = "C:/fvs_essa/FVSon.exe"
 )
-fvs_legacy_home <- Sys.getenv(
-  "FVS_ONTARIO_LEGACY_HOME",
-  unset = "C:/Program Files (x86)/FVSOntario"
-)
 
 if (!file.exists(fvs_essa_executable)) {
   stop("FVS executable was not found: ", fvs_essa_executable, call. = FALSE)
@@ -167,7 +163,7 @@ print(plot_fvs_yield(succession_results, metric = "all"))
 # Chunk 6: project the bundled mature red-oak inventory.
 # The inventory records do not supply site information; treat this red-oak
 # site index of 16 m as a starting assumption to refine for a real stand.
-red_oak_inventory <- file.path(fvs_legacy_home, "Work", "RedOak.tre")
+red_oak_inventory <- file.path(workflow_directory, "inventories", "RedOak.tre")
 
 if (!file.exists(red_oak_inventory)) {
   stop("Bundled red-oak inventory was not found: ", red_oak_inventory, call. = FALSE)
