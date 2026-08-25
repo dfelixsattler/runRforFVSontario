@@ -42,3 +42,15 @@ Results are written under `fvs_runs/` and are intentionally ignored by Git.
 - `fvs_species_yield_ggplot.R`: Species and scenario-comparison plots.
 - `inventories/`: Red oak, tolerant hardwood, white-pine mixedwood, and boreal mixedwood examples. See `inventories/README.md` for their starting assumptions.
 - `FVS_WORKFLOW.md`, `FVS_R_REFERENCE.md`, and `FVS_KEYWORD_GUIDE.md`: operational and function references.
+
+## Author
+
+Derek Sattler — [derek.sattler@nrcan-rncan.gc.ca](mailto:derek.sattler@nrcan-rncan.gc.ca)  
+Natural Resources Canada / Ressources naturelles Canada
+
+## Licence
+
+[![Licence: MIT](https://img.shields.io/badge/Licence-MIT-yellow.svg)](LICENSE)
+
+© His Majesty the King in Right of Canada, as represented by the Minister of Natural Resources, 2026.  
+Released under the [MIT License](LICENSE).
