@@ -1,5 +1,7 @@
 # runRforFVS
 
+> **Work in progress.** The workflow is functional but the repo is under active development.
+
 An RStudio workflow for running FVS Ontario projections, extracting species-level yield tables, and plotting yield over age. FVS executables and generated results are not included; four validated sample inventories are included under `inventories/`.
 
 ## Requirements
