@@ -1,4 +1,4 @@
-# runRforFVS
+# runRforFVSontario
 
 > **Work in progress.** The workflow is functional but the repo is under active development.
 
