@@ -1,5 +1,14 @@
 # Extract species and stand yield-over-age tables from an FVS Ontario .lst file.
 # Usage in R: source("fvs_species_yield.R"); extract_fvs_species_yield("multi_species_whpinemx.lst")
+#
+# Merchantable volume (gross_merchantable_m3_ha) is taken from fields[20L] of
+# the FVS TREELIST output, which is the per-tree merchantable volume computed
+# by FVS Ontario's internal taper equations with the model's default utilisation
+# limits. No MERCUCUT keyword is set in the FVS input — FVS Ontario uses its
+# built-in defaults.
+# VERIFY: confirm FVS Ontario defaults match CBM4 Ontario standard
+#   (9 cm DBH, 7 cm top, 30 cm stump) by checking the FVS Ontario user guide
+#   or the model's species parameter tables.
 
 parse_number <- function(value) {
   suppressWarnings(as.numeric(value))

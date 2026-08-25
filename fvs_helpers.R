@@ -5,11 +5,21 @@
 script_directory <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
 fvs_source_file <- tryCatch(sys.frame(1)$ofile, error = function(error) NULL)
 if (!is.null(fvs_source_file) && nzchar(fvs_source_file)) {
-  script_directory <- dirname(normalizePath(fvs_source_file, winslash = "/", mustWork = TRUE))
+  candidate_dir <- dirname(normalizePath(fvs_source_file, winslash = "/", mustWork = FALSE))
+  # Only use the detected directory if the sibling helpers actually exist there.
+  if (file.exists(file.path(candidate_dir, "fvs_species_yield.R"))) {
+    script_directory <- candidate_dir
+  }
 }
 fvs_legacy_home <- Sys.getenv(
   "FVS_ONTARIO_LEGACY_HOME",
   unset = "C:/Program Files (x86)/FVSOntario"
+)
+# Default executable: modern ESSA build. Override with FVS_ONTARIO_EXECUTABLE env var
+# or pass fvs_executable explicitly to fvs_run() / run_fvs_ontario_scenario().
+fvs_default_executable <- Sys.getenv(
+  "FVS_ONTARIO_EXECUTABLE",
+  unset = "C:/fvs_essa/FVSon.exe"
 )
 source(file.path(script_directory, "fvs_species_yield.R"))
 source(file.path(script_directory, "fvs_species_yield_ggplot.R"))
@@ -205,7 +215,7 @@ run_fvs_ontario_scenario <- function(run_id, description, output_directory,
                                      stand_modifiers = NULL,
                                      treatments = NULL,
                                      save_plots = FALSE,
-                                     fvs_executable = file.path(fvs_legacy_home, "Model", "FVSOntario.exe")) {
+                                     fvs_executable = fvs_default_executable) {
   origin <- match.arg(origin)
   if (!file.exists(fvs_executable)) stop("FVS executable was not found: ", fvs_executable, call. = FALSE)
   if (!is.null(inventory_file) && !file.exists(inventory_file)) stop("Inventory file was not found: ", inventory_file, call. = FALSE)
@@ -336,7 +346,7 @@ fvs_run <- function(species, stems_per_ha, origin = c("natural", "planted"),
                     stand_modifiers = NULL,
                     treatments = NULL,
                     save_plots = FALSE,
-                    fvs_executable = file.path(fvs_legacy_home, "Model", "FVSOntario.exe")) {
+                    fvs_executable = fvs_default_executable) {
   origin <- match.arg(origin)
   site_species_origin <- match.arg(site_species_origin, c("natural", "planted"))
   regeneration <- fvs_regeneration(species, stems_per_ha, origin)

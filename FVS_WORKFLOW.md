@@ -1,13 +1,13 @@
 # FVS Ontario RStudio Workflow
 
-Use the argument-driven workflow in `my_test_workflow_fvsontario.R` for repeatable RStudio scenarios. It creates a baseline, a thinning scenario, and separate density-sensitivity scenarios from one shared set of stand inputs.
+Use the argument-driven workflow in `workflow_ontario_examples.R` for repeatable RStudio scenarios. It creates a baseline, a thinning scenario, and separate density-sensitivity scenarios from one shared set of stand inputs.
 
 ## Start in RStudio
 
-Open `my_test_workflow_fvsontario.R`, edit the shared inputs at the top, and run the chunks you need. The script loads all helpers itself:
+Open `workflow_ontario_examples.R`, edit the shared inputs at the top, and run the steps you need. The script loads all helpers itself:
 
 ```r
-source("fvs_ontario_interactive.R")
+source("fvs_helpers.R")
 ```
 
 Open the cloned repository as the RStudio project or set it as the working directory first. The supplied workflow writes results under `fvs_runs/`, which Git ignores. Each scenario uses its own `run_id` and output directory so its FVS files and CSV outputs remain separate.
